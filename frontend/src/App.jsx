@@ -5,6 +5,8 @@ import HomePage from './components/HomePage';
 import ForgotPassword from './components/ForgotPassword';
 import OtpVerify from './components/OtpVerify';
 import NewPassword from './components/NewPassword';
+import StudentMakePage from './components/StudentMakePage';
+import StudentPage from './components/StudentPage';
 import {useState} from 'react';
 import {useEffect} from 'react';
 import axios from 'axios';
@@ -35,7 +37,8 @@ function App() {
       <Route path='/ForgotPassword' element={<ForgotPassword setPasswordData={setPasswordData}/>}></Route>
       <Route path='/OtpVerify' element={<OtpVerify passwordData={passwordData} /> }></Route>
       <Route path='/NewPassword' element={<NewPassword />}></Route>
-
+      <Route path='/StudentMakePage' element={<StudentMakePage />}></Route>
+      <Route path='/StudentPage' element={<StudentPage />}></Route>
     </Routes>
     </>
   )

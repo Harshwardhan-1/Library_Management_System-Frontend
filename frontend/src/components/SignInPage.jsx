@@ -13,8 +13,23 @@ export default function SignInPage({setUserData}){
         try{
         const response=await axios.post("https://library-management-system-backend-nleu.onrender.com/api/all/getSignIn",send,{withCredentials:true});
         if(response.data.message==="Login Successfully"){
-            setUserData(response.data.data);
-            navigate('/HomePage');
+            const user=response.data.data;
+             setUserData(response.data.data);
+            if(user.role=== 'Student'){
+    try{
+const response=await axios.get('https://library-management-system-backend-nleu.onrender.com/api/student/checkStudent',{withCredentials:true});
+if(response.data.message=== 'user Not Exist'){
+    navigate('/StudentMakePage');
+}
+    }catch(err){
+        if(err.response?.data?.message=== 'please do a signUpFirst'){
+            alert('please do a signUp first');
+            navigate('/');
+        }else if(err.response?.data?.message=== 'user alreadyExist'){
+            navigate('/StudentPage');
+        }
+    }
+            }
         }
     }catch(err){
         if(err.response?.data?.message==="Something went Wrong"){

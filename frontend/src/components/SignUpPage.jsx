@@ -21,6 +21,10 @@ export default function SignUpPage(){
                 alert("Fill your details properly");
             }else if(err.response?.data?.message=== "Something went wrong"){
                 alert("Something went wrong");
+            }else if(err.response?.data?.message=== 'name should be of 3 character'){
+                alert('name should be of 3 characters');
+            }else if(err.response?.data?.message=== 'password should be of 3 character'){
+                alert('password should be of 3 characters');
             }
     }
 }
