@@ -26,6 +26,8 @@ if(response.data.message=== 'user Exist'){
         <p>{data?.rollNo}</p>
         <p>{data?.department}</p>
         <p>{data?.section}</p>
+        <p>{data?.phoneNo}</p>
+        <button>Show all books</button>
        </div>
         </>
     );

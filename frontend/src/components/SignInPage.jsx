@@ -18,15 +18,15 @@ export default function SignInPage({setUserData}){
             if(user.role=== 'Student'){
     try{
 const response=await axios.get('https://library-management-system-backend-nleu.onrender.com/api/student/checkStudent',{withCredentials:true});
-if(response.data.message=== 'user Not Exist'){
-    navigate('/StudentMakePage');
+if(response.data.message=== 'user Exist'){
+    navigate('/StudentPage');
 }
     }catch(err){
         if(err.response?.data?.message=== 'please do a signUpFirst'){
             alert('please do a signUp first');
             navigate('/');
-        }else if(err.response?.data?.message=== 'user alreadyExist'){
-            navigate('/StudentPage');
+        }else if(err.response?.data?.message=== 'user not found'){
+            navigate('/StudentMakePage');
         }
     }
             }
