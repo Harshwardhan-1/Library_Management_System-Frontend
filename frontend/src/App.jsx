@@ -7,6 +7,7 @@ import OtpVerify from './components/OtpVerify';
 import NewPassword from './components/NewPassword';
 import StudentMakePage from './components/StudentMakePage';
 import StudentPage from './components/StudentPage';
+import AdminPage from './components/AdminPage';
 import {useState} from 'react';
 import {useEffect} from 'react';
 import axios from 'axios';
@@ -39,6 +40,7 @@ function App() {
       <Route path='/NewPassword' element={<NewPassword />}></Route>
       <Route path='/StudentMakePage' element={<StudentMakePage />}></Route>
       <Route path='/StudentPage' element={<StudentPage />}></Route>
+      <Route path='/AdminPage' element={<AdminPage />}></Route>
     </Routes>
     </>
   )
