@@ -1,6 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import './StudentMakePage.css';
 export default function StudentMakePage(){
     const navigate=useNavigate();
     const [rollNo,setRollNo]=useState('');
@@ -27,8 +28,8 @@ if(response.data.message=== 'user created successfully'){
     }
         return(
         <>
-        <h1>This is Student Make Page</h1>
-        <form onSubmit={handle}>
+        <h1 className="make-title">This is Student Make Page</h1>
+        <form className="make-form"  onSubmit={handle}>
     <input type="text" placeholder="Enter your rollNo here" onChange={(e)=>setRollNo(e.target.value)} />
     <input type="text" placeholder="Enter your department here" onChange={(e)=>setDepartment(e.target.value)} />
     <input type="text" placeholder="Enter your section here" onChange={(e)=>setSection(e.target.value)}/>

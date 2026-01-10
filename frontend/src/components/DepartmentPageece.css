@@ -60,3 +60,24 @@
 .cse-actions .update-btn:hover {
     background-color: #2980b9;
 }
+
+
+
+.cse-search{
+  width: 60%;
+  padding: 10px;
+  margin: 15px 0;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  outline: none;
+}
+
+.cse-search:focus{
+  border-color: #007bff;
+}
+
+.no-books{
+  text-align: center;
+  color: gray;
+  margin-top: 20px;
+}
