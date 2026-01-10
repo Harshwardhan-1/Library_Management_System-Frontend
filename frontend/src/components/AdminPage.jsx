@@ -25,12 +25,15 @@ if(response.data.message=== 'book added successfully'){
         }else if(err.response?.data?.message=== 'already exist increase quantity if available'){
             alert('same book with same author exist you can increase quantity');
         }else if(err.response?.data?.message=== 'Id must have atleast 3 characters'){
-            alert('id must have at leasr 3 characters');
+            alert('id must have at least 3 characters');
         }
     }
     }
     const handleCseBook=()=>{
         navigate('/DepartmentPagecse');
+    }
+    const handleEceBook=()=>{
+        navigate('/DepartmentPageece');
     }
     return(
         <>
@@ -47,7 +50,7 @@ if(response.data.message=== 'book added successfully'){
 
  <div className="dept-buttons">
         <button onClick={handleCseBook}>See all book of CSE Department</button>
-        <button>See all book ECE Department </button>
+        <button onClick={handleEceBook}>See all book ECE Department </button>
         <button>See all book Civil Department</button>
         <button>See all book of Mechanical Department</button>
         </div>
