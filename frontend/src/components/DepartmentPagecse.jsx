@@ -4,7 +4,7 @@ import axios from "axios";
 import './DepartmentPagecse.css';
 export default function DepartmentPagecse(){
     const [data,setData]=useState([]);
-    useEffect(()=>{
+    const [search,setSearch]=useState('');
         const fetch=async()=>{
 try{
     const response=await axios.get('https://library-management-system-backend-nleu.onrender.com/api/admin/getCse',{withCredentials:true});
@@ -17,9 +17,9 @@ try{
     }
 }
         };
-        fetch();
-    },[]);   
-
+        useEffect(()=>{
+           fetch();   
+        });
     const handleDelete=async(id)=>{
         const send={id};
         try{
@@ -30,16 +30,31 @@ if(response.data.message=== 'book deleted successfully'){
         }catch(err){
             if(err.response?.data?.message=== 'error'){
                 alert('something went wrong');
-            }
+            }   
         }
     }
+
+    const filterIt=data.filter((book)=>
+        book.author.toLowerCase().includes(search.toLowerCase())||
+        book.isbn.toLowerCase().includes(search.toLowerCase())
+    );
+    
     return(
         <>
           <div className="cse-page">
         <h1 className="cse-title">This are all the book of CSE Department</h1>
+<input type="text"   className="cse-search" placeholder="Search by author name or isbn/Book Id" onChange={(e)=>setSearch(e.target.value)} />
+          
+          {
+                filterIt.length===0  && (
+                    <p style={{ textAlign: "center", marginTop: "20px" }}>
+                    No user found
+                </p>
+                )
+            }
 
         {
-            data.map((all,index)=>(
+            filterIt.map((all,index)=>(
                 <div  className="cse-card" key={index}>
                     <p>{all.bookName}</p>
                     <p>{all.author}</p>
@@ -48,7 +63,6 @@ if(response.data.message=== 'book deleted successfully'){
                     <p>{all.quantity}</p>
                       <div className="cse-actions">
                     <button onClick={()=>handleDelete(all._id)}>delete</button>
-                    <button>Update</button>
                     </div>
                 </div>
             ))
