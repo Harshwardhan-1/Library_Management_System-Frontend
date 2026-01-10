@@ -19,6 +19,20 @@ try{
         };
         fetch();
     },[]);   
+
+    const handleDelete=async(id)=>{
+        const send={id};
+        try{
+const response=await axios.post('https://library-management-system-backend-nleu.onrender.com/api/admin/handleDelete',send,{withCredentials:true});
+if(response.data.message=== 'book deleted successfully'){
+    alert('bookDeleted');
+}
+        }catch(err){
+            if(err.response?.data?.message=== 'error'){
+                alert('something went wrong');
+            }
+        }
+    }
     return(
         <>
           <div className="cse-page">
@@ -33,7 +47,7 @@ try{
                     <p>{all.department}</p>
                     <p>{all.quantity}</p>
                       <div className="cse-actions">
-                    <button>delete</button>
+                    <button onClick={()=>handleDelete(all._id)}>delete</button>
                     <button>Update</button>
                     </div>
                 </div>
