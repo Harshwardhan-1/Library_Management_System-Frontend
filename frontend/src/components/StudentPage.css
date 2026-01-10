@@ -1,52 +1,96 @@
-.student-title{
+.student-title {
   text-align: center;
-  margin: 16px 0;
-  font-size: 22px;
+  margin: 20px 0;
+  color: #2c3e50;
+  font-size: 26px;
+  font-weight: 600;
 }
 
-.student-card{
-  width: 90%;
-  max-width: 380px;
-  margin: 0 auto;
-  padding: 16px;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
-  background: #fff;
+.student-card {
+  max-width: 420px;
+  margin: 0 auto 25px;
+  background: #ffffff;
+  padding: 18px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
 }
 
-.student-card p{
+.student-card p {
   margin: 6px 0;
-  font-size: 14px;
-  word-break: break-word;
+  font-size: 15px;
+  color: #34495e;
 }
 
-.student-btn{
-  margin-top: 12px;
+.student-btn {
   width: 100%;
+  margin-top: 12px;
   padding: 10px;
-  border: none;
-  border-radius: 6px;
-  background-color: #007bff;
+  background: #3498db;
   color: white;
+  border: none;
+  border-radius: 8px;
   font-size: 15px;
   cursor: pointer;
+  transition: 0.3s;
 }
 
-.student-btn:hover{
-  background-color: #0056b3;
+.student-btn:hover {
+  background: #2c80b4;
 }
 
+.student-page input[type="text"],
+input[type="text"] {
+  display: block;
+  margin: 0 auto 20px;
+  width: 90%;
+  max-width: 400px;
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+}
 
-@media (max-width: 480px){
-  .student-title{
-    font-size: 18px;
+input[type="text"]:focus {
+  outline: none;
+  border-color: #3498db;
+}
+
+.books-wrapper {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 18px;
+  padding: 0 18px 30px;
+}
+
+.book-card {
+  background: #ffffff;
+  padding: 15px;
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.07);
+  transition: 0.3s;
+}
+
+.book-card:hover {
+  transform: translateY(-4px);
+}
+
+.book-card p {
+  margin: 6px 0;
+  font-size: 14px;
+  color: #2c3e50;
+}
+
+.book-card span {
+  font-weight: 600;
+  color: #2980b9;
+}
+
+@media (max-width: 480px) {
+  .student-title {
+    font-size: 22px;
   }
 
-  .student-card{
-    padding: 12px;
-  }
-
-  .student-card p{
-    font-size: 13px;
+  .student-card {
+    margin: 0 15px 25px;
   }
 }

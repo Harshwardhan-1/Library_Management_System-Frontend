@@ -4,6 +4,7 @@ import './StudentPage.css';
 export default function StudentPage(){
 const [data,setData]=useState([]);
 const [books,setBooks]=useState([]);
+const [search,setSearch]=useState('');
     useEffect(()=>{
         const fetch=async()=>{
             try{
@@ -37,6 +38,31 @@ if(response.data.message=== 'showBooks'){
             }
         }
     }
+    const filterIt=books.filter((book)=>
+        book.author.toLowerCase().includes(search.toLowerCase())||
+        book.bookName.toLowerCase().includes(search.toLowerCase())
+    );
+
+
+    const handleIssue=async(author,department,quantity)=>{
+        const send={author,department,quantity};
+    try{
+const response=await axios.post('https://library-management-system-backend-nleu.onrender.com/api/issue/bookIssue',send,{withCredentials:true});
+if(response.data.message=== 'user request send for bookIssue'){
+    alert('book issued request send successfully');
+}
+    }catch(err){
+        if(err.response?.data.message=== 'provide proper details'){
+            alert('provide proper detail');
+        }else if(err.response?.data?.message=== 'you already send request for this book'){
+            alert('you already send request for this book');
+        }else if(err.response?.data?.message=== 'you have already send 3 book issue request'){
+            alert('you have already send 3 book issue request');
+        }else if(err.response?.data?.message=== 'user not found'){
+            alert('user not found');
+        }
+    }
+    }
     return(
         <>
         <h1 className="student-title">This is Student Page</h1>
@@ -49,18 +75,29 @@ if(response.data.message=== 'showBooks'){
         <p>{data?.phoneNo}</p>
         <button className="student-btn" onClick={()=>handleBooks(data?.department)}>Show all books</button>
        </div>
-
-
+   <input type="text" placeholder="Search By Author or BookName" onChange={(e)=>setSearch(e.target.value)}/>
+    <div className="books-wrapper">
+         
+          {
+                filterIt.length===0  && (
+                    <p style={{ textAlign: "center", marginTop: "20px" }}>
+                    No user found
+                </p>
+                )
+            }
        {
-        books.map((all,index)=>(
-            <div key={index}>
-                <p>{all.isbn}</p>
-                <p>{all.bookName}</p>
-                <p>{all.author}</p>
-                <p>{all.department}</p>
-            </div>
+        filterIt.map((all,index)=>(
+            <div className="book-card" key={index}>
+      <p><span>ISBN:</span> {all.isbn}</p>
+      <p><span>Book:</span> {all.bookName}</p>
+      <p><span>Author:</span> {all.author}</p>
+      <p><span>Dept:</span> {all.department}</p>
+      <p><span>Quantity:</span>{all.quantity}</p>
+      <button onClick={()=>handleIssue(all.author,all.department,all.quantity)}>Issue</button>
+    </div>
         ))
        }
+       </div>
         </>
     );
 }
