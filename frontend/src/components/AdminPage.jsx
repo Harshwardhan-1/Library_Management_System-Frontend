@@ -24,6 +24,8 @@ if(response.data.message=== 'book added successfully'){
             alert('you can increase quantity if available');
         }else if(err.response?.data?.message=== 'already exist increase quantity if available'){
             alert('same book with same author exist you can increase quantity');
+        }else if(err.response?.data?.message=== 'Id must have atleast 3 characters'){
+            alert('id must have at leasr 3 characters');
         }
     }
     }
