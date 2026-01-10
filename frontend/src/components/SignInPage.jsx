@@ -29,6 +29,8 @@ if(response.data.message=== 'user Exist'){
             navigate('/StudentMakePage');
         }
     }
+            }else if(user.role=== 'Admin'){
+                navigate('/AdminPage');
             }
         }
     }catch(err){
