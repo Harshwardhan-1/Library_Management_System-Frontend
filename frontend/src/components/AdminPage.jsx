@@ -1,6 +1,9 @@
 import { useState } from "react";
 import axios from 'axios';
+import { useNavigate } from "react-router-dom";
+import './AdminPage.css';
 export default function AdminPage(){
+    const navigate=useNavigate();
     const [bookName,setBookName]=useState('');
     const [author,setAuthor]=useState('');
     const[isbn,setIsbn]=useState('');
@@ -24,17 +27,29 @@ if(response.data.message=== 'book added successfully'){
         }
     }
     }
+    const handleCseBook=()=>{
+        navigate('/DepartmentPagecse');
+    }
     return(
         <>
-        <h1>Hii i am the admin of this website library managenent system</h1>
-        <form onSubmit={handle}>
+         <div className="admin-page">
+        <h1 className="admin-title">Hii i am the admin of this website Library Managenent System Harshwardhan Yadav</h1>
+        <form className="admin-form" onSubmit={handle}>
 <input type="text" placeholder="Enter your book name here" onChange={(e)=>setBookName(e.target.value)} />
 <input type="text" placeholder="Enter book author here" onChange={(e)=>setAuthor(e.target.value)} />
 <input type="text" placeholder="Enter your book Id here" onChange={(e)=>setIsbn(e.target.value)} />
 <input type="text" placeholder="Enter book department here" onChange={(e)=>setDepartment(e.target.value)} />
 <input type="text" placeholder="Enter book quantity here" onChange={(e)=>setQuantity(e.target.value)} />
-<button type="submit">Submit</button>
+<button type="submit" className="submit-btn">Submit</button>
         </form>
+
+ <div className="dept-buttons">
+        <button onClick={handleCseBook}>See all book of CSE Department</button>
+        <button>See all book ECE Department </button>
+        <button>See all book Civil Department</button>
+        <button>See all book of Mechanical Department</button>
+        </div>
+        </div>
         </>
     );
 }

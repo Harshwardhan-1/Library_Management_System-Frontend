@@ -8,6 +8,7 @@ import NewPassword from './components/NewPassword';
 import StudentMakePage from './components/StudentMakePage';
 import StudentPage from './components/StudentPage';
 import AdminPage from './components/AdminPage';
+import DepartmentPagecse from './components/DepartmentPagecse';
 import {useState} from 'react';
 import {useEffect} from 'react';
 import axios from 'axios';
@@ -41,6 +42,7 @@ function App() {
       <Route path='/StudentMakePage' element={<StudentMakePage />}></Route>
       <Route path='/StudentPage' element={<StudentPage />}></Route>
       <Route path='/AdminPage' element={<AdminPage />}></Route>
+      <Route path='/DepartmentPagecse' element={<DepartmentPagecse />} ></Route>
     </Routes>
     </>
   )
