@@ -71,6 +71,7 @@
 }
 
 
+
 @media (max-width: 600px) {
   .dept-buttons {
     grid-template-columns: 1fr;

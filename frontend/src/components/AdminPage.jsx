@@ -35,6 +35,11 @@ if(response.data.message=== 'book added successfully'){
     const handleEceBook=()=>{
         navigate('/DepartmentPageece');
     }
+
+
+    const handleIssue=()=>{
+        navigate('/RequestPage');
+    }
     return(
         <>
          <div className="admin-page">
@@ -55,6 +60,10 @@ if(response.data.message=== 'book added successfully'){
         <button>See all book of Mechanical Department</button>
         </div>
         </div>
+
+
+
+        <button onClick={handleIssue}>Accept Issue Request Of User</button>
         </>
     );
 }

@@ -47,7 +47,7 @@ if(response.data.message=== 'showBooks'){
     const handleIssue=async(author,department,quantity)=>{
         const send={author,department,quantity};
     try{
-const response=await axios.post('https://library-management-system-backend-nleu.onrender.com/api/issue/bookIssue',send,{withCredentials:true});
+const response=await axios.post('https://library-management-system-backend-nleu.onrender.com/api/issue/bookRequest',send,{withCredentials:true});
 if(response.data.message=== 'user request send for bookIssue'){
     alert('book issued request send successfully');
 }
