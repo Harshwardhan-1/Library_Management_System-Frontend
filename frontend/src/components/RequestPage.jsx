@@ -29,6 +29,10 @@ if(response.data.message=== 'request send successfully'){
     }catch(err){
         if(err.response?.data?.message=== 'details are required'){
             alert('details are required');
+        }else if(err.response?.data?.message=== 'email already send to this person'){
+            alert('approved request already send to this user');
+        }else if(err.response?.data?.message=== 'Out Of Stock'){
+            alert('book out of stock');
         }
     }
     }
@@ -42,7 +46,7 @@ if(response.data.message=== 'request send successfully'){
                 <div className="request-card" key={index}>
                     <p>UserId:{all?.userId}</p>
                     <p>Name Of Student:{all?.name}</p>
-                    <p>Gmail Of Gmail:{all?.gmail}</p>
+                    <p>Gmail Of Student:{all?.gmail}</p>
                     <p>Author Of Book:{all?.author}</p>
                     <p>Department Of Student:{all?.department}</p>
                     <p>Quantity left:{all?.quantity}</p>
