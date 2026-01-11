@@ -44,8 +44,8 @@ if(response.data.message=== 'showBooks'){
     );
 
 
-    const handleIssue=async(author,department,quantity)=>{
-        const send={author,department,quantity};
+    const handleIssue=async(isbn,author,department,quantity)=>{
+        const send={isbn,author,department,quantity};
     try{
 const response=await axios.post('https://library-management-system-backend-nleu.onrender.com/api/issue/bookRequest',send,{withCredentials:true});
 if(response.data.message=== 'user request send for bookIssue'){
@@ -67,12 +67,12 @@ if(response.data.message=== 'user request send for bookIssue'){
         <>
         <h1 className="student-title">This is Student Page</h1>
        <div  className="student-card">
-        <p>{data?.name}</p>
-        <p>{data?.gmail}</p>
-        <p>{data?.rollNo}</p>
-        <p>{data?.department}</p>
-        <p>{data?.section}</p>
-        <p>{data?.phoneNo}</p>
+        <p>Name:{data?.name}</p>
+        <p>Gmail:{data?.gmail}</p>
+        <p>RollNo:{data?.rollNo}</p>
+        <p>Department:{data?.department}</p>
+        <p>Section:{data?.section}</p>
+        <p>PhoneNo:{data?.phoneNo}</p>
         <button className="student-btn" onClick={()=>handleBooks(data?.department)}>Show all books</button>
        </div>
    <input type="text" placeholder="Search By Author or BookName" onChange={(e)=>setSearch(e.target.value)}/>
@@ -92,8 +92,7 @@ if(response.data.message=== 'user request send for bookIssue'){
       <p><span>Book:</span> {all.bookName}</p>
       <p><span>Author:</span> {all.author}</p>
       <p><span>Dept:</span> {all.department}</p>
-      <p><span>Quantity:</span>{all.quantity}</p>
-      <button onClick={()=>handleIssue(all.author,all.department,all.quantity)}>Issue</button>
+      <button onClick={()=>handleIssue(all.isbn,all.author,all.department,all.quantity)}>Issue</button>
     </div>
         ))
        }
