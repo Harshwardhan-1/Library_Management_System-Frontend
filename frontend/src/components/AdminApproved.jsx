@@ -23,6 +23,20 @@ export default function AdminApproved(){
 const response=await axios.post('https://library-management-system-backend-nleu.onrender.com/api/return/succReturn',send,{withCredentials:true});
 if(response.data.message=== 'successfully created'){
     alert('user successfully return book');
+
+    try{
+        const send={userId,isbn,author};
+const response=await axios.post('https://library-management-system-backend-nleu.onrender.com/api/return/deleteIt',send,{withCredentials:true});
+if(response.data.message=== 'userDeleted'){
+    alert('user Deleted');
+}
+    }catch(err){
+        if(err.response?.data?.message=== 'provide proper detail'){
+            alert('provide proper detail');
+        }else if(err.response?.data?.message=== 'not found'){
+            alert('Not Found');
+        }
+    }
 }
         }catch(err){
             if(err.response?.data?.messsage=== 'provide proper detail'){
