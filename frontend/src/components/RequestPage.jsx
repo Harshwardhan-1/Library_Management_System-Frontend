@@ -22,7 +22,7 @@ if(response.data.message=== 'here are all the issue request'){
     const handleApprove=async(userId,name,gmail,author,department)=>{
         const send={userId,name,gmail,author,department};
     try{
-const response=await axios.post('https://library-management-system-backend-nleu.onrender.com/api/approved/Approved',send,{withCredentials:true});
+const response=await axios.post('https://library-management-system-backend-nleu.onrender.com/api/approved/approved',send,{withCredentials:true});
 if(response.data.message=== 'request send successfully'){
     alert('gmail send successfully');
 }
