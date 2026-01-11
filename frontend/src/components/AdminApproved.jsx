@@ -16,6 +16,24 @@ export default function AdminApproved(){
         };
         fetch();
     },[]);
+
+    const handleReturn=async(userId,name,gmail,isbn,author,date)=>{
+        const send={userId,name,gmail,isbn,author,date};
+        try{
+const response=await axios.post('https://library-management-system-backend-nleu.onrender.com/api/return/succReturn',send,{withCredentials:true});
+if(response.data.message=== 'successfully created'){
+    alert('user successfully return book');
+}
+        }catch(err){
+            if(err.response?.data?.messsage=== 'provide proper detail'){
+                alert('provide proper detail');
+            }else if(err.response?.data?.message=== 'not found'){
+                alert('not found');
+            }else if(err.response?.data?.message=== 'pay 50 rupees fine and then you can return'){
+                alert('pay 50 rupees fine and then you can return');
+            }
+        }
+    }
     return(
         <>
          <div className="admin-approved-page">
@@ -30,8 +48,7 @@ export default function AdminApproved(){
                     <p>{all?.isbn}</p>
                     <p>{all?.author}</p>
                     <p><strong>Issued Date:{new Date(all.date).toLocaleDateString()} </strong></p>
-                    <button>Delete</button>
-                    <button>Return Book</button>
+                     <button onClick={()=>handleReturn(all?.userId,all?.name,all?.gmail,all?.isbn,all?.author,all.date)}>Return Book</button>
                 </div>
             ))
         }
