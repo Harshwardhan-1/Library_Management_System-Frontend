@@ -23,11 +23,11 @@ if(response.data.message=== 'here are all the issue request'){
         {
             data.map((all,index)=>{
                 <div key={index}>
-                    <p>Name Of Student:{data?.name}</p>
-                    <p>Gmail Of Gmail:{data?.gmail}</p>
-                    <p>Author Of Book:{data?.author}</p>
-                    <p>Department Of Student:{data?.department}</p>
-                    <p>Quantity left:{data?.quantity}</p>
+                    <p>Name Of Student:{all?.name}</p>
+                    <p>Gmail Of Gmail:{all?.gmail}</p>
+                    <p>Author Of Book:{all?.author}</p>
+                    <p>Department Of Student:{all?.department}</p>
+                    <p>Quantity left:{all?.quantity}</p>
                 </div>
             })
         }
