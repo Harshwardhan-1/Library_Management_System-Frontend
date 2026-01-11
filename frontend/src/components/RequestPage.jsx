@@ -18,24 +18,6 @@ if(response.data.message=== 'here are all the issue request'){
         };
         fetch();
     },[]);
-    
-    const handleApprove=async(userId,name,gmail,author,department)=>{
-        const send={userId,name,gmail,author,department};
-    try{
-const response=await axios.post('https://library-management-system-backend-nleu.onrender.com/api/approved/approved',send,{withCredentials:true});
-if(response.data.message=== 'request send successfully'){
-    alert('gmail send successfully');
-}
-    }catch(err){
-        if(err.response?.data?.message=== 'details are required'){
-            alert('details are required');
-        }else if(err.response?.data?.message=== 'email already send to this person'){
-            alert('approved request already send to this user');
-        }else if(err.response?.data?.message=== 'Out Of Stock'){
-            alert('book out of stock');
-        }
-    }
-    }
     return(
         <>
         <div className="request-page">
@@ -49,10 +31,9 @@ if(response.data.message=== 'request send successfully'){
                     <p>Gmail Of Student:{all?.gmail}</p>
                     <p>Author Of Book:{all?.author}</p>
                     <p>Department Of Student:{all?.department}</p>
-                    <p>Quantity left:{all?.quantity}</p>
-
+                    <p>quantity:{all?.quantity}</p>
                    <div className="button-box">
-              <button onClick={()=>handleApprove(all?.userId,all?.name,all?.gmail,all?.author,all?.department)} className="approve-btn">Approve</button>
+              <button className="approve-btn">Approve</button>
               <button className="reject-btn">Reject</button>
             </div>
                 </div>

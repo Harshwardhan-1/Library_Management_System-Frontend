@@ -8,7 +8,9 @@ export default function AdminPage(){
     const [author,setAuthor]=useState('');
     const[isbn,setIsbn]=useState('');
     const [department,setDepartment]=useState('');
-    const [quantity,setQuantity]=useState('');
+    const [quantity,setQuantity]=useState(0);
+
+
     const handle=async(e)=>{
         e.preventDefault();
     const send={bookName,author,isbn,department,quantity};
@@ -26,6 +28,8 @@ if(response.data.message=== 'book added successfully'){
             alert('same book with same author exist you can increase quantity');
         }else if(err.response?.data?.message=== 'Id must have atleast 3 characters'){
             alert('id must have at least 3 characters');
+        }else if(err.response?.data?.message=== 'quantity must be atleast 1'){
+            alert('quantity must be atleast 1');
         }
     }
     }
@@ -49,7 +53,7 @@ if(response.data.message=== 'book added successfully'){
 <input type="text" placeholder="Enter book author here" onChange={(e)=>setAuthor(e.target.value)} />
 <input type="text" placeholder="Enter your book Id here" onChange={(e)=>setIsbn(e.target.value)} />
 <input type="text" placeholder="Enter book department here" onChange={(e)=>setDepartment(e.target.value)} />
-<input type="text" placeholder="Enter book quantity here" onChange={(e)=>setQuantity(e.target.value)} />
+<input type="number" placeholder="Enter book quantity here" onChange={(e)=>setQuantity(e.target.value)} />
 <button type="submit" className="submit-btn">Submit</button>
         </form>
 
