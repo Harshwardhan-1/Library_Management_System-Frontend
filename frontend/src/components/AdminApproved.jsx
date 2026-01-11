@@ -29,6 +29,7 @@ export default function AdminApproved(){
                     <p>{all?.gmail}</p>
                     <p>{all?.isbn}</p>
                     <p>{all?.author}</p>
+                    <p><strong>Issued Date:{new Date(all.date).toLocaleDateString()} </strong></p>
                     <button>Delete</button>
                     <button>Return Book</button>
                 </div>
