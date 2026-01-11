@@ -1,5 +1,6 @@
 import { useState,useEffect } from "react";
 import axios from "axios";
+import './AdminApproved.css';
 export default function AdminApproved(){
     const [data,setData]=useState([]);
     useEffect(()=>{
@@ -17,19 +18,23 @@ export default function AdminApproved(){
     },[]);
     return(
         <>
+         <div className="admin-approved-page">
         <h1>Admin Approved Request</h1>
 
         {
-            data.map((all,index)=>{
-                <div key={index}>
-                    <p>{data?.userId}</p>
-                    <p>{data?.name}</p>
-                    <p>{data?.gmail}</p>
-                    <p>{data?.isbn}</p>
-                    <p>{data?.author}</p>
+            data.map((all,index)=>(
+                <div className="admin-approved-card" key={index}>
+                    <p>{all?.userId}</p>
+                    <p>{all?.name}</p>
+                    <p>{all?.gmail}</p>
+                    <p>{all?.isbn}</p>
+                    <p>{all?.author}</p>
+                    <button>Delete</button>
+                    <button>Return Book</button>
                 </div>
-            })
+            ))
         }
+        </div>
         </>
     );
 }
