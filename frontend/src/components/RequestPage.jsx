@@ -1,8 +1,10 @@
 import {useState,useEffect} from 'react';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import './RequestPage.css';
 export default function RequestPage(){
     const [data,setData]=useState([]);
+    const navigate=useNavigate();
     useEffect(()=>{
         const fetch=async()=>{
             try{
@@ -26,6 +28,18 @@ if(response.data.message=== 'here are all the issue request'){
 const response=await axios.post("https://library-management-system-backend-nleu.onrender.com/api/approve/approveRequest",send,{withCredentials:true});
 if(response.data.message=== 'user added successfully'){
     alert('email send to user for request granted');
+
+try{
+    const send={userId,name,gmail,isbn,author};
+const response=await axios.post('https://library-management-system-backend-nleu.onrender.com/api/issued/create',send,{withCredentials:true});
+if(response.data.message=== 'added successfully'){
+    alert('issued Book added to admin Panel successfully');
+}
+}catch(err){
+    if(err.response?.data?.message=== 'provide proper details'){
+        alert('provide proper details');
+    }
+}
 }
         }catch(err){
             if(err.response?.data?.message=== 'provide proper details'){
@@ -53,6 +67,9 @@ if(response.data.message=== 'user request reject successfully'){
             }
         }
     }
+    const handle=()=>{
+        navigate('/AdminApproved');
+    }
     return(
         <>
         <div className="request-page">
@@ -76,6 +93,8 @@ if(response.data.message=== 'user request reject successfully'){
         }
         </div>
         </div>
+
+        <button onClick={handle}>Admin Approved Book Issue</button>
         </>
     );
 }

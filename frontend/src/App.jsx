@@ -11,6 +11,7 @@ import AdminPage from './components/AdminPage';
 import DepartmentPagecse from './components/DepartmentPagecse';
 import DepartmentPageece from './components/DepartmentPageece';
 import RequestPage from './components/RequestPage';
+import AdminApproved from './components/AdminApproved';
 import {useState} from 'react';
 import {useEffect} from 'react';
 import axios from 'axios';
@@ -47,6 +48,7 @@ function App() {
       <Route path='/DepartmentPagecse' element={<DepartmentPagecse />} ></Route>
       <Route path='/DepartmentPageece' element={<DepartmentPageece />}></Route>
       <Route path='/RequestPage' element={<RequestPage />}></Route>
+      <Route path='/AdminApproved' element={<AdminApproved />}></Route>
     </Routes>
     </>
   )
