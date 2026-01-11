@@ -38,6 +38,21 @@ if(response.data.message=== 'user added successfully'){
         }
     }
 
+    const handleDelete=async(name,gmail,userId,author,isbn)=>{
+        const send={name,gmail,userId,author,isbn};
+        try{
+const response=await axios.post("https://library-management-system-backend-nleu.onrender.com/api/approve/deleteRequest",send,{withCredentials:true});
+if(response.data.message=== 'user request reject successfully'){
+    alert('user request reject successfully');
+}
+        }catch(err){
+            if(err.response?.data?.message=== 'provide proper details'){
+                alert('provide proper details')
+            }else if(err.response?.data?.message=== 'not found'){
+                alert('user not found');
+            }
+        }
+    }
     return(
         <>
         <div className="request-page">
@@ -54,7 +69,7 @@ if(response.data.message=== 'user added successfully'){
                     <p>Department Of Student:{all?.department}</p>
                    <div className="button-box">
               <button onClick={()=>handleApprove(all?.userId,all?.name,all?.gmail,all?.isbn,all?.author)} className="approve-btn">Approve</button>
-              <button className="reject-btn">Reject</button>
+              <button onClick={()=>handleDelete(all?.name,all?.gmail,all?.userId,all?.author,all?.isbn)} className="reject-btn">Reject</button>
             </div>
                 </div>
             ))
