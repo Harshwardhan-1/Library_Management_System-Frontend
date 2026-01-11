@@ -1,0 +1,75 @@
+.request-page {
+  padding: 30px;
+  background: #f4f6f9;
+  min-height: 100vh;
+}
+
+.request-page h1 {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #222;
+  font-size: 26px;
+}
+
+.request-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.request-card {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  transition: 0.3s;
+}
+
+.request-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.12);
+}
+
+.request-card p {
+  margin: 8px 0;
+  font-size: 15px;
+  color: #333;
+}
+
+.request-card b {
+  color: #000;
+}
+
+.button-box {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px;
+}
+
+.approve-btn {
+  background: #28a745;
+  border: none;
+  color: white;
+  padding: 8px 15px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.reject-btn {
+  background: #dc3545;
+  border: none;
+  color: white;
+  padding: 8px 15px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.approve-btn:hover {
+  background: #218838;
+}
+
+.reject-btn:hover {
+  background: #c82333;
+}
