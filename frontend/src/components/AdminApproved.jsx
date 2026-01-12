@@ -68,7 +68,7 @@ if(response.data.message=== 'userDeleted'){
                     <p>{all?.isbn}</p>
                     <p>{all?.author}</p>
                     <p><strong>Issued Date:{new Date(all.date).toLocaleDateString()} </strong></p>
-                     <button onClick={()=>handleReturn(all?.userId,all?.name,all?.gmail,all?.isbn,all?.author,all.date)}>Return Book</button>
+                     <button className="return-book" onClick={()=>handleReturn(all?.userId,all?.name,all?.gmail,all?.isbn,all?.author,all.date)}>Return Book</button>
                 </div>
             ))
         }

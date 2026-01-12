@@ -41,14 +41,28 @@
     color: #0f0;
 }
 
-.del{
-    height: 30px;
-    width: 60px;
-    background-color: #0f0;
-    color: black;
-    border-radius: 10px;
+.del {
+    background-color: #e74c3c;
+    color: white;
     border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    margin-top: 10px;
 }
+
+.del:hover {
+    background-color: #c0392b;
+    transform: scale(1.05);
+    box-shadow: 0px 4px 8px rgba(0,0,0,0.2);
+}
+
+.del:focus {
+    outline: none;
+}
+
 
 @media (max-width: 480px) {
     .fine-wrapper {
