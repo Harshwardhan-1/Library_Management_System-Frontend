@@ -67,6 +67,8 @@ if(response.data.message=== 'userDeleted'){
             ))
         }
         </div>
+
+        <button className="issue-btn">Fine Left Page</button>
         </>
     );
 }

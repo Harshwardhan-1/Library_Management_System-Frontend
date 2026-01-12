@@ -32,3 +32,33 @@
     margin: 6px 0;
     color: #555;
 }
+
+
+
+
+.issue-btn {
+    margin-top: 25px;
+    padding: 12px 20px;
+    background-color: #0f0;  
+    color: #000;             
+    font-weight: bold;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+
+.issue-btn:hover {
+    background-color: #0c0;
+    transform: scale(1.05);
+}
+
+@media (max-width: 480px) {
+    .issue-btn {
+        font-size: 14px;
+        padding: 10px 15px;
+        margin-top: 20px;
+    }
+}
