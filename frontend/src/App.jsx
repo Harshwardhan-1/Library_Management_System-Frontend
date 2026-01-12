@@ -14,6 +14,7 @@ import RequestPage from './components/RequestPage';
 import AdminApproved from './components/AdminApproved';
 import {useState} from 'react';
 import {useEffect} from 'react';
+import FinePage from './components/FinePage';
 import axios from 'axios';
 function App() {
   useEffect(()=>{
@@ -49,6 +50,7 @@ function App() {
       <Route path='/DepartmentPageece' element={<DepartmentPageece />}></Route>
       <Route path='/RequestPage' element={<RequestPage />}></Route>
       <Route path='/AdminApproved' element={<AdminApproved />}></Route>
+      <Route path='/FinePage' element={<FinePage />}></Route>
     </Routes>
     </>
   )

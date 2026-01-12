@@ -31,7 +31,7 @@ if(response.data.message=== 'user created successfully'){
         <h1 className="make-title">This is Student Make Page</h1>
         <form className="make-form"  onSubmit={handle}>
     <input type="text" placeholder="Enter your rollNo here" onChange={(e)=>setRollNo(e.target.value)} />
-    <input type="text" placeholder="Enter your department here" onChange={(e)=>setDepartment(e.target.value)} />
+    <input type="text" placeholder="Enter your department here CSE/ECE" onChange={(e)=>setDepartment(e.target.value)} />
     <input type="text" placeholder="Enter your section here" onChange={(e)=>setSection(e.target.value)}/>
     <input type="text" placeholder="Enter your phoneNo" onChange={(e)=>setPhoneNo(e.target.value)} />
     <button type="submit">Submit</button>

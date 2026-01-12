@@ -1,7 +1,9 @@
 import { useState,useEffect } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 import './AdminApproved.css';
 export default function AdminApproved(){
+    const navigate=useNavigate();
     const [data,setData]=useState([]);
     useEffect(()=>{
         const fetch=async()=>{
@@ -43,10 +45,14 @@ if(response.data.message=== 'userDeleted'){
                 alert('provide proper detail');
             }else if(err.response?.data?.message=== 'not found'){
                 alert('not found');
-            }else if(err.response?.data?.message=== 'pay 50 rupees fine and then you can return'){
-                alert('pay 50 rupees fine and then you can return');
+            }else if(err.response?.data?.message=== 'fine Model created successfully'){
+                alert('pay 50 rupees fine and then you can return and fine model created successfully');
             }
         }
+    }
+    
+    const handlefine=()=>{
+        navigate('/FinePage');
     }
     return(
         <>
@@ -68,7 +74,7 @@ if(response.data.message=== 'userDeleted'){
         }
         </div>
 
-        <button className="issue-btn">Fine Left Page</button>
+        <button onClick={handlefine}  className="issue-btn">Fine Left Page</button>
         </>
     );
 }
