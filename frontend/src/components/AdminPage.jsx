@@ -67,7 +67,7 @@ if(response.data.message=== 'book added successfully'){
 
 
 
-        <button onClick={handleIssue}>Accept Issue Request Of User</button>
+        <button className="issue-btn" onClick={handleIssue}>Accept Issue Request Of User</button>
         </>
     );
 }

@@ -94,7 +94,7 @@ if(response.data.message=== 'user request reject successfully'){
         </div>
         </div>
 
-        <button onClick={handle}>Admin Approved Book Issue</button>
+        <button className='issue-btn' onClick={handle}>Admin Approved Book Issue</button>
         </>
     );
 }

@@ -1,87 +1,185 @@
-.admin-page {
-  max-width: 900px;
-  margin: auto;
-  padding: 20px;
-  font-family: Arial, sans-serif;
+.admin-page, 
+.admin-page * {
+    box-sizing: border-box;
 }
 
+.admin-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+    background-color: #000;
+    font-family: 'Arial', sans-serif;
+    color: #fff;
+}
 
 .admin-title {
-  text-align: center;
-  margin-bottom: 25px;
-  color: #2c3e50;
+    text-align: center;
+    color: #0f0;
+    margin-bottom: 30px;
+    font-size: 22px;
+    max-width: 800px;
 }
 
 .admin-form {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  padding: 20px;
-  background: #f4f6f8;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    background-color: #111;
+    padding: 25px 20px;
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(0, 255, 0, 0.2);
+    width: 100%;
+    max-width: 500px;
+    margin-bottom: 20px;
 }
 
-.admin-form input {
-  padding: 12px;
-  border-radius: 6px;
-  border: 1px solid #ccc;
-  font-size: 16px;
+.admin-form input[type="text"],
+.admin-form input[type="number"] {
+    padding: 12px 15px;
+    margin-bottom: 15px;
+    border: 1px solid #333;
+    border-radius: 8px;
+    background-color: #222;
+    color: #fff;
+    font-size: 16px;
+    transition: border 0.3s, background-color 0.3s;
+    width: 100%;
+}
+
+.admin-form input::placeholder {
+    color: #aaa;
 }
 
 .admin-form input:focus {
-  outline: none;
-  border-color: #3498db;
+    outline: none;
+    border: 1px solid #0f0;
+    background-color: #1a1a1a;
 }
 
 .submit-btn {
-  padding: 12px;
-  background: #3498db;
-  color: white;
-  border: none;
-  font-size: 16px;
-  border-radius: 6px;
-  cursor: pointer;
+    padding: 12px;
+    background-color: #0f0;
+    color: #000;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    width: 100%;
 }
 
 .submit-btn:hover {
-  background: #2980b9;
+    background-color: #0c0;
+    transform: scale(1.05);
 }
 
-
 .dept-buttons {
-  margin-top: 25px;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 15px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
 }
 
 .dept-buttons button {
-  padding: 12px;
-  background: #2ecc71;
-  border: none;
-  color: white;
-  font-size: 15px;
-  border-radius: 6px;
-  cursor: pointer;
+    padding: 10px 15px;
+    background-color: #0f0;
+    color: #000;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s, transform 0.2s;
 }
 
 .dept-buttons button:hover {
-  background: #27ae60;
+    background-color: #0c0;
+    transform: scale(1.05);
+}
+
+.admin-page > button {
+    margin-top: 25px;
+    padding: 12px 20px;
+    background-color: #0f0;
+    color: #000;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.admin-page > button:hover {
+    background-color: #0c0;
+    transform: scale(1.05);
 }
 
 
+.admin-page .issue-btn {
+    margin-top: 25px;
+    padding: 12px 20px;
+    background-color: #0f0;  /* Bright green */
+    color: #000;             /* Black text */
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 16px;
+    transition: background-color 0.3s, transform 0.2s;
+}
 
-@media (max-width: 600px) {
-  .dept-buttons {
-    grid-template-columns: 1fr;
-  }
+.issue-btn {
+    margin-top: 25px;
+    padding: 12px 20px;
+    background-color: #0f0;  
+    color: #000;             
+    font-weight: bold;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
 
-  .admin-form {
-    padding: 15px;
-  }
 
-  .admin-title {
-    font-size: 20px;
-  }
+.issue-btn:hover {
+    background-color: #0c0;
+    transform: scale(1.05);
+}
+
+@media (max-width: 480px) {
+    .issue-btn {
+        font-size: 14px;
+        padding: 10px 15px;
+        margin-top: 20px;
+    }
+}
+
+
+@media (max-width: 480px) {
+    .admin-form {
+        padding: 20px 15px;
+    }
+
+    .admin-form input[type="text"],
+    .admin-form input[type="number"],
+    .submit-btn {
+        font-size: 15px;
+        padding: 10px 12px;
+    }
+
+    .dept-buttons button {
+        font-size: 14px;
+        padding: 8px 10px;
+    }
+
+    .admin-page > button {
+        font-size: 14px;
+        padding: 10px 12px;
+    }
+
+    .admin-title {
+        font-size: 20px;
+    }
 }
