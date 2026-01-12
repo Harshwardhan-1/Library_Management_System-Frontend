@@ -29,7 +29,7 @@ export default function SignUpPage(){
     }
 }
     return(
-        <>
+        <>  
             <div className="signup-page-container">
             <div className="signup-form-wrapper">
                 <p  className="signup-welcome">Welcome to SignUpPage</p>
