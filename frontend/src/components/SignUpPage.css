@@ -110,3 +110,11 @@
         font-size: 13px;
     }
 }
+
+.signup-welcome {
+    font-size: 24px;        
+    font-weight: bold;         
+    color: #1e90ff;            
+    text-align: center;        
+    padding: 10px 0;        
+}
