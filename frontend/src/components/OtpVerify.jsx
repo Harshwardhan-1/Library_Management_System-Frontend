@@ -9,7 +9,7 @@ export default function OtpVerify({passwordData}){
         e.preventDefault();
     const send={otp};
     try{
-    const response=await axios.post('https://library-management-system-backend-nleu.onrender.com/api/all/OtpVerify',send,{withCredentials:true});
+    const response=await axios.post('https://library-management-system-backend-1-i28x.onrender.com/api/all/OtpVerify',send,{withCredentials:true});
     if(response.data.message==="User enter correct otp"){
         navigate("/NewPassword");
     }

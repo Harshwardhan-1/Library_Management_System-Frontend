@@ -10,7 +10,7 @@ export default function NewPassword(){
         e.preventDefault();
         const send={password,confirmPassword};
         try{
-        const response=await axios.post("https://library-management-system-backend-nleu.onrender.com/api/all/changePassword",send,{withCredentials:true})
+        const response=await axios.post("https://library-management-system-backend-1-i28x.onrender.com/api/all/changePassword",send,{withCredentials:true})
         if(response.data.message==="change successfull"){
             navigate('/signIn');
         }

@@ -8,7 +8,7 @@ export default function AdminApproved(){
     useEffect(()=>{
         const fetch=async()=>{
             try{
-    const response=await axios.get("https://library-management-system-backend-nleu.onrender.com/api/issued/allIssued",{withCredentials:true});
+    const response=await axios.get("https://library-management-system-backend-1-i28x.onrender.com/api/issued/allIssued",{withCredentials:true});
     setData(response.data.data);
             }catch(err){
                 if(err){
@@ -22,13 +22,13 @@ export default function AdminApproved(){
     const handleReturn=async(userId,name,gmail,isbn,author,date)=>{
         const send={userId,name,gmail,isbn,author,date};
         try{
-const response=await axios.post('https://library-management-system-backend-nleu.onrender.com/api/return/succReturn',send,{withCredentials:true});
+const response=await axios.post('https://library-management-system-backend-1-i28x.onrender.com/api/return/succReturn',send,{withCredentials:true});
 if(response.data.message=== 'successfully created'){
     alert('user successfully return book');
 
     try{
         const send={userId,isbn,author};
-const response=await axios.post('https://library-management-system-backend-nleu.onrender.com/api/return/deleteIt',send,{withCredentials:true});
+const response=await axios.post('https://library-management-system-backend-1-i28x.onrender.com/api/return/deleteIt',send,{withCredentials:true});
 if(response.data.message=== 'userDeleted'){
     alert('user Deleted');
 }

@@ -6,7 +6,7 @@ export default function FinePage(){
     useEffect(()=>{
         const fetch=async()=>{
             try{
-const response=await axios.get("https://library-management-system-backend-nleu.onrender.com/api/fine/allFine",{withCredentials:true});
+const response=await axios.get("https://library-management-system-backend-1-i28x.onrender.com/api/fine/allFine",{withCredentials:true});
 setData(response.data.data);
             }catch(err){
                 console.log(err);
@@ -18,7 +18,7 @@ setData(response.data.data);
     const handleDelete=async(userId,name,gmail,isbn,author)=>{
         const send={userId,name,gmail,isbn,author};
         try{
-    const response=await axios.post('https://library-management-system-backend-nleu.onrender.com/api/return/paidFine',send,{withCredentials:true});
+    const response=await axios.post('https://library-management-system-backend-1-i28x.onrender.com/api/return/paidFine',send,{withCredentials:true});
     if(response.data.message=== 'user successfully pay fine'){
         alert('user successfully pay the fine');
     }

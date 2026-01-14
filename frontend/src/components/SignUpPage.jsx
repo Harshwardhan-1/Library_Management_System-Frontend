@@ -12,7 +12,7 @@ export default function SignUpPage(){
         e.preventDefault();
         try{
         const send={name,gmail,password};
-        const response=await axios.post("https://library-management-system-backend-nleu.onrender.com/api/all/getSignUp",send,{withCredentials:true});
+        const response=await axios.post("https://library-management-system-backend-1-i28x.onrender.com/api/all/getSignUp",send,{withCredentials:true});
         if(response.data.message==="Successfully Login"){
             navigate("/signIn");
         }

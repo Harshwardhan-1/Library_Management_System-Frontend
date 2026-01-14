@@ -15,7 +15,7 @@ export default function AdminPage(){
         e.preventDefault();
     const send={bookName,author,isbn,department,quantity};
     try{
-const response=await axios.post("https://library-management-system-backend-nleu.onrender.com/api/admin/addBook",send,{withCredentials:true});
+const response=await axios.post("https://library-management-system-backend-1-i28x.onrender.com/api/admin/addBook",send,{withCredentials:true});
 if(response.data.message=== 'book added successfully'){
     alert('book successfully added');
 }

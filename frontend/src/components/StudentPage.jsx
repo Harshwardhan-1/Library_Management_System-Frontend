@@ -8,7 +8,7 @@ const [search,setSearch]=useState('');
     useEffect(()=>{
         const fetch=async()=>{
             try{
-const response=await axios.get('https://library-management-system-backend-nleu.onrender.com/api/student/checkStudent',{withCredentials:true});
+const response=await axios.get('https://library-management-system-backend-1-i28x.onrender.com/api/student/checkStudent',{withCredentials:true});
 if(response.data.message=== 'user Exist'){
     setData(response.data.data);
 }
@@ -25,7 +25,7 @@ if(response.data.message=== 'user Exist'){
     const handleBooks=async(department)=>{
         const send={department};
         try{
-const response=await axios.post('https://library-management-system-backend-nleu.onrender.com/api/admin/handleBooks',send,{withCredentials:true});
+const response=await axios.post('https://library-management-system-backend-1-i28x.onrender.com/api/admin/handleBooks',send,{withCredentials:true});
 if(response.data.message=== 'showBooks'){
     alert('This are the books of CSE Department');
     setBooks(response.data.data);
@@ -47,7 +47,7 @@ if(response.data.message=== 'showBooks'){
     const handleIssue=async(isbn,author,department,quantity)=>{
         const send={isbn,author,department,quantity};
     try{
-const response=await axios.post('https://library-management-system-backend-nleu.onrender.com/api/issue/bookRequest',send,{withCredentials:true});
+const response=await axios.post('https://library-management-system-backend-1-i28x.onrender.com/api/issue/bookRequest',send,{withCredentials:true});
 if(response.data.message=== 'user request send for bookIssue'){
     alert('book issued request send successfully');
 }

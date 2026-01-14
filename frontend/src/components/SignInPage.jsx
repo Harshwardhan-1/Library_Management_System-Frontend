@@ -11,13 +11,13 @@ export default function SignInPage({setUserData}){
         e.preventDefault();
         const send={gmail,password};
         try{
-        const response=await axios.post("https://library-management-system-backend-nleu.onrender.com/api/all/getSignIn",send,{withCredentials:true});
+        const response=await axios.post("https://library-management-system-backend-1-i28x.onrender.com/api/all/getSignIn",send,{withCredentials:true});
         if(response.data.message==="Login Successfully"){
             const user=response.data.data;
              setUserData(response.data.data);
             if(user.role=== 'Student'){
     try{
-const response=await axios.get('https://library-management-system-backend-nleu.onrender.com/api/student/checkStudent',{withCredentials:true});
+const response=await axios.get('https://library-management-system-backend-1-i28x.onrender.com/api/student/checkStudent',{withCredentials:true});
 if(response.data.message=== 'user Exist'){
     navigate('/StudentPage');
 }

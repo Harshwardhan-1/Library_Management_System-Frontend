@@ -25,13 +25,13 @@ if(response.data.message=== 'here are all the issue request'){
     const handleApprove=async(userId,name,gmail,isbn,author)=>{
         const send={userId,name,gmail,isbn,author};
         try{
-const response=await axios.post("https://library-management-system-backend-nleu.onrender.com/api/approve/approveRequest",send,{withCredentials:true});
+const response=await axios.post("https://library-management-system-backend-1-i28x.onrender.com/api/approve/approveRequest",send,{withCredentials:true});
 if(response.data.message=== 'user added successfully'){
     alert('email send to user for request granted');
 
 try{
     const send={userId,name,gmail,isbn,author};
-const response=await axios.post('https://library-management-system-backend-nleu.onrender.com/api/issued/create',send,{withCredentials:true});
+const response=await axios.post('https://library-management-system-backend-1-i28x.onrender.com/api/issued/create',send,{withCredentials:true});
 if(response.data.message=== 'added successfully'){
     alert('issued Book added to admin Panel successfully');
 }
@@ -55,7 +55,7 @@ if(response.data.message=== 'added successfully'){
     const handleDelete=async(name,gmail,userId,author,isbn)=>{
         const send={name,gmail,userId,author,isbn};
         try{
-const response=await axios.post("https://library-management-system-backend-nleu.onrender.com/api/approve/deleteRequest",send,{withCredentials:true});
+const response=await axios.post("https://library-management-system-backend-1-i28x.onrender.com/api/approve/deleteRequest",send,{withCredentials:true});
 if(response.data.message=== 'user request reject successfully'){
     alert('user request reject successfully');
 }

@@ -7,7 +7,7 @@ export default function DepartmentPageece(){
      useEffect(()=>{
         const fetch=async()=>{
             try{
-const response=await axios.get('https://library-management-system-backend-nleu.onrender.com/api/admin/getEce',{withCredentials:true});
+const response=await axios.get('https://library-management-system-backend-1-i28x.onrender.com/api/admin/getEce',{withCredentials:true});
 if(response.data.message=== 'book found'){
     setData(response.data.data);
 }

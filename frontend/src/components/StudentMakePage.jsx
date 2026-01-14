@@ -14,7 +14,7 @@ export default function StudentMakePage(){
         e.preventDefault();
         const send={rollNo,department,section,phoneNo};
         try{
-const response=await axios.post('https://library-management-system-backend-nleu.onrender.com/api/student/makeStudent',send,{withCredentials:true});
+const response=await axios.post('https://library-management-system-backend-1-i28x.onrender.com/api/student/makeStudent',send,{withCredentials:true});
 if(response.data.message=== 'user created successfully'){
     navigate('/StudentPage');
 }
